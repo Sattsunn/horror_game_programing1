@@ -9,9 +9,9 @@ sg.theme("black")
 
 #b(物陰に隠れる)
 photo = sg.Image(size=(500,500),filename="./img/1monokage.png")
-button = sg.Button("走って逃げる",key="a")
-button2 = sg.Button("このまま隠れる",key="b")
-button3 = sg.Button("武器を探す",key="c")
+button = sg.Button("走って逃げる",key="b_a")
+button2 = sg.Button("このまま隠れる",key="b_b")
+button3 = sg.Button("武器を探す",key="b_c")
 
 #a(走って逃げる)b(このまま隠れる)c(武器を探す)
 def make_b_1():
@@ -145,7 +145,7 @@ def clear():
 photo_gameover = sg.Image(size=(1000,1000),filename="./img/gameover.png")
 
 def GAMEOVER():
-    gameover_layout = [[sg.Text("ゲームオーバー!")]
+    gameover_layout = [[sg.Text("ゲームオーバー!")],
                        [photo_gameover]]
 
     return sg.Window ("ホラーゲーム", gameover_layout, size=(800,600), finalize=True)

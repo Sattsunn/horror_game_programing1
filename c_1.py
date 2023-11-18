@@ -4,7 +4,8 @@ import PySimpleGUI as sg
 sg.theme("black")
 
 photo = sg.Image(size=(400,300),filename="./img/start.png")
-text = sg.Text("本を見つけた", key="text",border_width=1)
+text = sg.Text("ジャックをランタンが飾ってある、、、")
+text_ca = sg.Text("今日は10月31日のようだ、、、")
 text_book = sg.Text("本を見つけた", key="text",border_width=1)
 square = sg.Canvas(size=(400,50))
 button_backa = sg.Button("戻る",key="c1a")
@@ -25,7 +26,7 @@ def make_c_1b():
     # カレンダーを見る
     c_layout = [
                      [photo], 
-                     [text] ,  
+                     [text_ca] ,  
                      [button_backb]]
     
     return sg.Window("ホラーゲーム", c_layout,size=(500,600), finalize=True)

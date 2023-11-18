@@ -1,12 +1,13 @@
 import PySimpleGUI as sg
 import time
-# ページの読み込み
 import prologue,start1,a,b,c_0,c_1,c_2,c_3,c_4,epilogue
+
+
 sg.theme("black")
 
 def make_main():
     # ------------ メインウィンドウ作成 ------------
-    main_layout = [[sg.Text("ハロウィンからの脱出",size=(450,200))],
+    main_layout = [[sg.Text("ハロウィンからの脱出")],
             [sg.Button("GAMESTART")],
             [sg.Button("Close")]]
     return sg.Window("ホラーゲーム", main_layout, size=(500, 300),finalize=True)
@@ -15,7 +16,7 @@ def make_main():
 
 # 最初に表示するウィンドウを指定する。
 window = make_main()
-print("hoge")
+
 
 while True:
     event, values = window.read()
@@ -44,16 +45,16 @@ while True:
     # Aの処理
     elif event == "a":
         window.close()
-        window_a = a.make_a_1()
+        window = a.make_a_1()
 
     elif event == "next":
-        window_a.close() 
+        window.close() 
         window_z = a.make_a_2()
         while True:
             event_z, values_z = window_z.read()
             if event_z == sg.WIN_CLOSED:
                 break
-            if event_z == "a":
+            if event_z == "a_a":
                 window_z.close()
                 window_b = a.make_a_3()
                 while True:
@@ -75,7 +76,7 @@ while True:
                                     if event_d == sg.WIN_CLOSED or "close":
                                         break
                                 
-            if event_z == "b":
+            if event_z == "a_b":
                 window_z.close()
                 window_e = a.make_a_5()
                 while True:
@@ -207,7 +208,7 @@ while True:
                                                                                                                break
                                                                                                            if event_w == "next15":
                                                                                                                window_w.close()
-                                                                                                               window_x = a.gameclear()
+                                                                                                               window_x =a.gameclear()
                                                                                                                while True:
                                                                                                                    event_x, value_x = window_x.read()
                                                                                                                    if event_x == sg.WIN_CLOSED or "close2":
@@ -240,11 +241,9 @@ while True:
     elif event == "b":
         window.close()
         window = b.make_b_1()
-        window = b.make_b_1()
-
 
     #ba(隠れる、走って逃げる)
-    if event == "a":
+    if event == "b_a":
         window.close()
         window = b.make_b_a()
         while True:
@@ -254,11 +253,16 @@ while True:
                 window.close()
                 window = b.make_b_aa()
                 while True:
+
                     event, values = window.read()
                     #baaa
                     if event == "baaa":
                         window.close()
                         window = b.clear()
+                    elif event == "clear":
+                        window.close()
+                        window == epilogue.epi()
+                        
 
                     #baab
                     elif event == "baab":
@@ -286,6 +290,9 @@ while True:
                             if event == "baaa":
                                 window.close()
                                 window = b.clear()
+                                if event == "clear":
+                                    window.close()
+                                    window == epilogue.epi()
 
                             #baab
                             elif event == "baab":
@@ -304,7 +311,7 @@ while True:
 
 
 #b,b(隠れる、隠れる)
-    elif event == "b":
+    elif event == "b_b":
         window.close()
         window = b.make_b_b()
         while True:
@@ -323,6 +330,9 @@ while True:
                     if event == "baaa":
                         window.close()
                         window = b.clear()
+                        if event == "clear":
+                            window.close()
+                            window == epilogue.epi()
 
                     #baab
                     elif event == "baab":
@@ -331,7 +341,7 @@ while True:
 
 
 #b,c()
-    elif event == "c":
+    elif event == "b_c":
         window.close()
         window = b.make_b_c()
         while True:
@@ -344,11 +354,17 @@ while True:
             elif event == "bcb":
                 window.close()
                 window = b.clear()
+                if event == "clear":
+                    window.close()
+                    window == epilogue.epi()
 
             #戦いに挑む　#ゲームオーバー
             elif event == "bcc":
                 window.close()
                 window = b.clear()
+                if event == "clear":
+                    window.close()
+                    window == epilogue.epi()
 
 
 
@@ -358,7 +374,7 @@ while True:
     
     # Cの処理
     
-    elif event == "c":
+    elif event == "c0":
         # 近づく
         sg.popup("俺は化け物に近づいてみることにした、、、\n化け物が俺に気づいた瞬間激しい金切り声と思い出せないほどの恐怖を感じ俺の意識はなくなっていた、、、、")
         window.close()
@@ -383,9 +399,17 @@ while True:
     # c_1
 
 
+    elif event == "c1a":
+        window.close()
+        window = c_1.make_c_1a()
+
+    elif event == "c1b":
+        window.close()
+        window = c_1.make_c_1b()
+        
     elif event == "c1c":
         window.close()
-        sg.popup("ハロウィン\n")
+        sg.popup("..…記録  ….年…10.….日\nこの地域の信仰では、新年の始まりは11月1日の….であった\n。この日が新しい年の始まりを示し、日没は新しい日….りを意味していた。\nこの…祭は毎年…月31日の夜に始まった。祭司たちは、かがり火を焚\nき、作物と動物….犠牲を捧げた。また、祭司たちが火のまわりで踊る…..太\n陽の季節が過ぎ去り、暗闇の季節が始ま….。1年のこの日には、この世と霊界\nとの間に目に見えない「門」が開き、この両方の世界の間で自由に行き来が可能とな\nる。11月1日の朝が来ると、….は、各家庭にこの火から燃えさしを与えた。これに\nより門が閉じ……..になる。\n私は……反対した。こんなに小さい少女を….に捧げる……逃…..。\nたとえ門が開いた….になったと……..")
         sg.popup('たすけて', text_color="red") 
         sg.popup('たすけて', text_color="red",) 
         sg.popup('たすけて', text_color="red") 
